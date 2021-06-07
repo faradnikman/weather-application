@@ -6,10 +6,18 @@ const router = express.Router()
 
 router.get(
   '/',
-  query('city').isString().isLength({
-    min: 4,
-    max: 85,
-  }),
+  query('city')
+    .isString()
+    .isLength({
+      max: 85,
+    })
+    .optional(),
+  query(['lon', 'lat'])
+    .isDecimal()
+    .isLength({
+      max: 20,
+    })
+    .optional(),
   async function (req, res) {
     try {
       const validationErrors = validationResult(req)
@@ -25,6 +33,8 @@ router.get(
         {
           params: {
             q: req.query.city,
+            lat: req.query.lat,
+            lon: req.query.lon,
             appid: process.env.OPEN_WEATHER_MAP_API_KEY,
             units: 'imperial',
           },
