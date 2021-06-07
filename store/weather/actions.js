@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export default {
-  async fetchCurrentCityData({ commit, dispatch }, city = 'kuala lumpur') {
+  async fetchCurrentCityData({ commit, dispatch }, city = 'Kuala Lumpur') {
     try {
       dispatch('wait/start', 'fetch-weather-data', { root: true })
       const { data } = await axios.get('api/weather', {
@@ -9,7 +9,7 @@ export default {
           city,
         },
       })
-      commit('updateCity', city)
+      commit('updateCity', data.name)
       commit('updateCityData', data)
     } catch (error) {
       console.log(
