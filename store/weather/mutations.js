@@ -2,7 +2,10 @@ export default {
   updateCity(state, city = '') {
     state.city = city
   },
-  updateCityData(state, data) {
-    state.cityData = data
+  updateWeather(state, data) {
+    state.daily = data
+  },
+  updateForecast(state, data) {
+    state.forecast = data
   },
 }

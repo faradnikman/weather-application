@@ -1,5 +1,6 @@
 export default () => ({
   city: '',
-  cityData: {},
+  daily: {},
+  forecast: {},
   units: 'metric',
 })
