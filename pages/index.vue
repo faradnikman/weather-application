@@ -2,24 +2,27 @@
   <div>
     <city-selection-bar />
     <weather-card />
+    <five-days-forecast />
   </div>
 </template>
 
 <script>
 import { mapActions, mapState } from 'vuex'
-import WeatherCard from '../components/WeatherCard'
+import WeatherCard from '~/components/WeatherCard'
 import CitySelectionBar from '~/components/CitySelectionBar'
+import FiveDaysForecast from '~/components/FiveDaysForecast'
 
 export default {
   components: {
     WeatherCard,
     CitySelectionBar,
+    FiveDaysForecast,
   },
   methods: {
     ...mapActions('weather', ['fetchWeather', 'fetchForecast']),
   },
   computed: {
-    ...mapState('weather', ['city']),
+    ...mapState('weather', ['city', 'forecast']),
   },
   async created() {
     try {
