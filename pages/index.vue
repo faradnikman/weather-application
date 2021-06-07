@@ -19,27 +19,40 @@ export default {
     ...mapActions({
       fetchWeather: 'weather/fetchCurrentCityData',
     }),
+    startLoading() {
+      this.$wait.start('fetch-weather-data')
+    },
+    stopLading() {
+      this.$wait.end('fetch-weather-data')
+    },
   },
   computed: {
     ...mapState('weather', ['city']),
   },
-  mounted() {
-    this.fetchWeather(this.$route.query.city)
+  async created() {
+    await this.fetchWeather({ city: this.$route.query.city })
   },
-  watch: {
-    '$route.query.city'(city) {
-      this.fetchWeather(city)
-    },
-    city(currentValue, previousValue) {
-      if (currentValue && previousValue) {
-        this.$router.replace({
+  async mounted() {
+    if (!this.$route.query.city) {
+      try {
+        const coordinate = await this.$getLocation()
+
+        // fetch based on location
+        await this.fetchWeather({
+          lon: coordinate.lng,
+          lat: coordinate.lat,
+        })
+
+        return this.$router.replace({
           path: '/',
           query: {
             city: this.city,
           },
         })
+      } catch (error) {
+        // implement error handling
       }
-    },
+    }
   },
 }
 </script>

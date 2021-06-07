@@ -10,14 +10,14 @@
       item-value="name"
       :value="city"
       cache-items
-      @input="updateCity"
+      @input="handleUpdateCity"
     />
   </div>
 </template>
 
 <script>
 import malaysiaCityList from './malaysiaCityList'
-import { mapMutations, mapState } from 'vuex'
+import { mapActions, mapMutations, mapState } from 'vuex'
 
 export default {
   name: 'CitySelectionBar',
@@ -31,6 +31,16 @@ export default {
   },
   methods: {
     ...mapMutations('weather', ['updateCity']),
+    ...mapActions('weather', ['fetchCurrentCityData']),
+    handleUpdateCity(city) {
+      this.fetchCurrentCityData({ city })
+      return this.$router.replace({
+        path: '/',
+        query: {
+          city,
+        },
+      })
+    },
   },
 }
 </script>
