@@ -1,4 +1,5 @@
 export default () => ({
-  city: 'Kuala Lumpur',
+  city: '',
   cityData: {},
+  units: 'metric',
 })
