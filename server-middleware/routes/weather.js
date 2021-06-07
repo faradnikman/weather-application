@@ -26,6 +26,7 @@ router.get(
           params: {
             q: req.query.city,
             appid: process.env.OPEN_WEATHER_MAP_API_KEY,
+            units: 'imperial',
           },
         }
       )
