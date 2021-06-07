@@ -40,7 +40,6 @@ router.get(
           },
         }
       )
-
       return res.status(status).json(data)
     } catch (error) {
       return res
