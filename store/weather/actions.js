@@ -1,12 +1,17 @@
 import axios from 'axios'
 
 export default {
-  async fetchCurrentCityData({ commit, dispatch }, city = 'Kuala Lumpur') {
+  async fetchCurrentCityData(
+    { commit, dispatch, ...rest },
+    { city = 'Kuala Lumpur', lon = 0, lat = 0 }
+  ) {
     try {
       dispatch('wait/start', 'fetch-weather-data', { root: true })
       const { data } = await axios.get('api/weather', {
         params: {
-          city,
+          city: lon && lat ? undefined : city,
+          lon,
+          lat,
         },
       })
       commit('updateCity', data.name)
