@@ -3,7 +3,7 @@
     <template slot="waiting">
       <v-skeleton-loader type="card"></v-skeleton-loader>
     </template>
-    <v-card v-if="city">
+    <v-card v-if="cityData.name">
       <v-card-title>{{ cityData.name }}</v-card-title>
       <v-card-text>
         <h2>{{ currentTemperature.temp }}</h2>
