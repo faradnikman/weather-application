@@ -16,21 +16,20 @@ export default {
     CitySelectionBar,
   },
   methods: {
-    ...mapActions({
-      fetchWeather: 'weather/fetchCurrentCityData',
-    }),
-    startLoading() {
-      this.$wait.start('fetch-weather-data')
-    },
-    stopLading() {
-      this.$wait.end('fetch-weather-data')
-    },
+    ...mapActions('weather', ['fetchWeather', 'fetchForecast']),
   },
   computed: {
     ...mapState('weather', ['city']),
   },
   async created() {
-    await this.fetchWeather({ city: this.$route.query.city })
+    try {
+      await Promise.all([
+        this.fetchWeather({ city: this.$route.query.city }),
+        this.fetchForecast({ city: this.$route.query.city }),
+      ])
+    } catch (error) {
+      // todo: handle error
+    }
   },
   async mounted() {
     if (!this.$route.query.city) {
@@ -38,10 +37,16 @@ export default {
         const coordinate = await this.$getLocation()
 
         // fetch based on location
-        await this.fetchWeather({
-          lon: coordinate.lng,
-          lat: coordinate.lat,
-        })
+        await Promise.all([
+          this.fetchWeather({
+            lon: coordinate.lng,
+            lat: coordinate.lat,
+          }),
+          this.fetchForecast({
+            lon: coordinate.lng,
+            lat: coordinate.lat,
+          }),
+        ])
 
         return this.$router.replace({
           path: '/',
@@ -50,7 +55,7 @@ export default {
           },
         })
       } catch (error) {
-        // implement error handling
+        // todo: implement error handling
       }
     }
   },

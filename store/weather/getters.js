@@ -2,10 +2,10 @@ import temperatureConversion from '~/utility/temperatureConversion'
 
 export default {
   getCurrentWeather(state) {
-    return state.cityData.weather[0]
+    return state.daily.weather[0]
   },
   getCurrentTemperature(state) {
-    const { feels_like, temp } = state.cityData.main
+    const { feels_like, temp } = state.daily.main
 
     if (state.units === 'imperial') {
       return {

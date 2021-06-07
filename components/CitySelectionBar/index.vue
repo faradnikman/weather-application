@@ -4,7 +4,7 @@
       auto-select-first
       rounded
       solo
-      placeholder="How is the weather today?"
+      placeholder="How is the daily today?"
       :items="malaysiaCityList"
       item-text="name"
       item-value="name"
@@ -31,9 +31,10 @@ export default {
   },
   methods: {
     ...mapMutations('weather', ['updateCity']),
-    ...mapActions('weather', ['fetchCurrentCityData']),
+    ...mapActions('weather', ['fetchWeather', 'fetchForecast']),
     handleUpdateCity(city) {
-      this.fetchCurrentCityData({ city })
+      this.fetchWeather({ city })
+      this.fetchForecast({ city })
       return this.$router.replace({
         path: '/',
         query: {

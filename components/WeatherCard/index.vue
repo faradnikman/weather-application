@@ -1,10 +1,10 @@
 <template>
-  <v-wait for="fetch-weather-data">
+  <v-wait for="fetch-daily-data">
     <template slot="waiting">
       <v-skeleton-loader type="card"></v-skeleton-loader>
     </template>
-    <v-card v-if="cityData.name">
-      <v-card-title>{{ cityData.name }}</v-card-title>
+    <v-card v-if="daily.name">
+      <v-card-title>{{ daily.name }}</v-card-title>
       <v-card-text>
         <h2>{{ currentTemperature.temp }}</h2>
         <h3>
@@ -23,7 +23,7 @@ import { mapState, mapGetters } from 'vuex'
 export default {
   name: 'WeatherCard',
   computed: {
-    ...mapState('weather', ['city', 'cityData']),
+    ...mapState('weather', ['city', 'daily']),
     ...mapGetters('weather', {
       currentWeather: 'getCurrentWeather',
       currentTemperature: 'getCurrentTemperature',
