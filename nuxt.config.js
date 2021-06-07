@@ -26,6 +26,7 @@ export default {
   ],
 
   modules: [['vue-wait/nuxt', { useVuex: true }]],
+  plugins: ['~/plugins/vue-browser-location'],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
