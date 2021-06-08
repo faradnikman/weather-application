@@ -55,7 +55,6 @@ export default {
         ])
 
         return this.$router.replace({
-          path: '/',
           query: {
             city: this.city,
           },
@@ -63,6 +62,12 @@ export default {
       } catch (error) {
         // todo: implement error handling
       }
+    }
+  },
+  watchQuery(newValue, oldValue) {
+    if (oldValue.city) {
+      this.fetchWeather({ city: newValue.city })
+      this.fetchForecast({ city: newValue.city })
     }
   },
 }
