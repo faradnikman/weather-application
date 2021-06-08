@@ -3,5 +3,5 @@ export default () => ({
   daily: {},
   forecast: {},
   units: 'metric',
-  cities: ['Kuala Lumpur', 'George Town', 'Johor Bharu'],
+  cities: ['Kuala Lumpur', 'George Town', 'Johor'],
 })

@@ -17,21 +17,21 @@
           </v-col>
         </v-row>
       </template>
-      <v-row class="ma-n2">
+      <v-row class="ma-n2" v-if="cityWeather.length">
         <v-col
           md="3"
           xs="12"
           v-cloak
           v-if="cities.length"
-          v-for="(city, index) in cities"
-          :key="city"
+          v-for="(city, index) in cityWeather"
+          :key="city.name"
           class="pa-2"
         >
           <v-card height="100%" shaped ripple>
             <v-card-text>
               <v-flex class="justify-space-between" style="position: relative">
                 <h2>
-                  {{ city }}
+                  {{ city.name }}
                 </h2>
                 <v-btn
                   icon
@@ -46,8 +46,15 @@
                   <v-icon class="v-size--x-small">mdi-minus</v-icon>
                 </v-btn>
               </v-flex>
-
-              <p>subs here</p>
+              <p>{{ city.description }}</p>
+              <div>
+                <v-avatar size="36px" class="ml-auto">
+                  <img :alt="city.description" :src="city.icon" />
+                </v-avatar>
+                <span>
+                  <strong>{{ city.temp }}</strong>
+                </span>
+              </div>
             </v-card-text>
           </v-card>
         </v-col>
@@ -57,15 +64,56 @@
 </template>
 
 <script>
-import { mapMutations, mapState } from 'vuex'
+import { mapActions, mapMutations, mapState } from 'vuex'
+import temperatureConversion from '~/utility/temperatureConversion'
 
 export default {
   name: 'CitiesCarousel',
   computed: {
-    ...mapState('weather', ['cities']),
+    ...mapState('weather', ['cities', 'units']),
+    cityWeather() {
+      return this.cityWeathers.map(({ name, main, weather }) => ({
+        name,
+        temp: temperatureConversion(main.temp) + this.temperatureUnit,
+        description: weather[0].description,
+        icon:
+          'https://openweathermap.org/img/wn/' + weather[0].icon + '@2x.png',
+      }))
+    },
+    temperatureUnit() {
+      return this.units === 'imperial' ? '°F' : '°C'
+    },
+  },
+  data() {
+    return {
+      cityWeathers: [],
+    }
+  },
+  async mounted() {
+    try {
+      this.cityWeathers = await Promise.all(
+        this.cities.map((city) => this.fetchMiniCardWeather(city))
+      )
+    } catch (error) {
+      // todo: error handling
+    }
   },
   methods: {
     ...mapMutations('weather', ['removeCities']),
+    ...mapActions('weather', ['fetchMiniCardWeather']),
+  },
+  watch: {
+    async cities(newData) {
+      if (newData.length > this.cityWeather.length) {
+        return this.cityWeathers.push(
+          await this.fetchMiniCardWeather(newData[newData.length - 1])
+        )
+      }
+
+      this.cityWeathers = this.cityWeathers.filter(({ name }) =>
+        newData.includes(name)
+      )
+    },
   },
 }
 </script>
