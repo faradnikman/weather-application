@@ -1,6 +1,6 @@
 <template>
   <v-flex>
-    <h2>Weather Forecast</h2>
+    <h2 class="mb-2">Weather Forecast</h2>
     <v-wait for="fetch-cities-daily">
       <template slot="waiting">
         <v-row class="ma-n2">
@@ -27,18 +27,18 @@
           :key="city"
           class="pa-2"
         >
-          <v-card height="100%">
+          <v-card height="100%" shaped ripple>
             <v-card-text>
-              <v-container>
-                <v-row>
-                  <v-col>
-                    <h2>{{ city }}</h2>
-                    <v-btn icon @click.prevent.stop="removeCities(index)">
-                      <v-icon>mdi-minus</v-icon>
-                    </v-btn>
-                  </v-col>
-                </v-row>
-              </v-container>
+              <v-flex class="justify-space-between">
+                <h2>
+                  {{ city }}
+                </h2>
+                <v-btn icon @click.prevent.stop="removeCities(index)" small>
+                  <v-icon class="v-size--x-small">mdi-minus</v-icon>
+                </v-btn>
+              </v-flex>
+
+              <p>subs here</p>
             </v-card-text>
           </v-card>
         </v-col>
