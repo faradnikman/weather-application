@@ -22,7 +22,7 @@
           <v-card width="250px" shaped ripple class="ma-2">
             <v-card-text>
               <v-flex class="justify-space-between" style="position: relative">
-                <h2>
+                <h2 class="mr-5">
                   {{ city.name }}
                 </h2>
                 <v-btn
@@ -37,8 +37,8 @@
                 >
                   <v-icon class="v-size--x-small">mdi-minus</v-icon>
                 </v-btn>
+                <p>{{ city.description }}</p>
               </v-flex>
-              <p>{{ city.description }}</p>
               <div>
                 <v-avatar size="36px" class="ml-auto">
                   <img :alt="city.description" :src="city.icon" />
