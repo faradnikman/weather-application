@@ -17,7 +17,7 @@
 
 <script>
 import malaysiaCityList from './malaysiaCityList'
-import { mapActions, mapMutations, mapState } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 
 export default {
   name: 'CitySelectionBar',
@@ -31,12 +31,8 @@ export default {
   },
   methods: {
     ...mapMutations('weather', ['updateCity']),
-    ...mapActions('weather', ['fetchWeather', 'fetchForecast']),
     handleUpdateCity(city) {
-      this.fetchWeather({ city })
-      this.fetchForecast({ city })
       return this.$router.replace({
-        path: '/',
         query: {
           city,
         },

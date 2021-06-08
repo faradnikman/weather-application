@@ -1,6 +1,5 @@
 <template>
   <v-flex>
-    <h2 class="mb-2">Weather Forecast</h2>
     <v-wait for="fetch-cities-daily">
       <template slot="waiting">
         <v-row class="ma-n2">
@@ -19,7 +18,12 @@
       </template>
       <v-slide-group :show-arrows="this.$vuetify.breakpoint.mdAndUp">
         <v-slide-item v-for="(city, index) in cityWeather" :key="city.name">
-          <v-card width="250px" shaped ripple class="ma-2">
+          <v-card
+            width="250px"
+            shaped
+            class="ma-2"
+            @click.prevent="handleRoute(city.name)"
+          >
             <v-card-text>
               <v-flex class="justify-space-between" style="position: relative">
                 <h2 class="mr-5">
@@ -91,6 +95,15 @@ export default {
     }
   },
   methods: {
+    handleRoute(city) {
+      if (city !== this.$route.query.city) {
+        this.$router.replace({
+          query: {
+            city,
+          },
+        })
+      }
+    },
     ...mapMutations('weather', ['removeCities']),
     ...mapActions('weather', ['fetchMiniCardWeather']),
   },
