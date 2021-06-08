@@ -3,7 +3,16 @@ import dayjs from 'dayjs'
 
 export default {
   getCurrentWeather(state) {
-    return state.daily.weather[0]
+    if (!state.daily.weather[0]) {
+      return {}
+    }
+
+    const { description, icon } = state.daily.weather[0]
+
+    return {
+      description,
+      icon: 'https://openweathermap.org/img/wn/' + icon + '@2x.png',
+    }
   },
   getCurrentTemperature(state) {
     const { feels_like, temp } = state.daily.main
