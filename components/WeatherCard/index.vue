@@ -1,30 +1,46 @@
 <template>
-  <v-flex class="mt-10">
-    <v-wait for="fetch-daily-data">
-      <template slot="waiting">
-        <v-skeleton-loader type="card"></v-skeleton-loader>
-      </template>
-      <v-flex v-if="daily.name">
-        <v-flex
-          >{{ daily.name }}
-          <v-btn
-            icon
-            @click.prevent="addCities(daily.name)"
-            v-if="isNotIncludedInCities"
-          >
-            <v-icon>mdi-plus</v-icon>
-          </v-btn>
-        </v-flex>
-        <v-flex>
-          <h2>{{ currentTemperature.temp }}</h2>
-          <h3>
-            Feels like {{ currentTemperature.feels_like }},
-            {{ currentWeather.description }}
-          </h3>
-        </v-flex>
-      </v-flex>
-    </v-wait></v-flex
-  >
+  <v-wait for="fetch-daily-data">
+    <template slot="waiting">
+      <v-skeleton-loader type="card" class="my-8" />
+    </template>
+    <div v-if="daily.name" class="my-4">
+      <v-card-text>
+        <v-row>
+          <v-col xs="6">
+            <v-flex class="flex-column">
+              <div class="align-center d-flex">
+                <span class="text-h4 font-weight-bold">{{ daily.name }}</span>
+                <v-btn
+                  class="ml-2"
+                  small
+                  icon
+                  @click.prevent="addCities(daily.name)"
+                  v-if="isNotIncludedInCities"
+                >
+                  <v-icon>mdi-plus</v-icon>
+                </v-btn>
+              </div>
+              <v-flex>
+                <v-avatar size="32px">
+                  <img
+                    :alt="currentWeather.description"
+                    :src="currentWeather.icon"
+                    class="ma-auto"
+                  />
+                </v-avatar>
+                <span class="mb-2">
+                  {{ currentWeather.description }}, Feels like
+                  <span class="font-weight-bold">{{
+                    currentTemperature.feels_like
+                  }}</span>
+                </span>
+              </v-flex>
+            </v-flex>
+          </v-col>
+        </v-row>
+      </v-card-text>
+    </div>
+  </v-wait>
 </template>
 
 <script>

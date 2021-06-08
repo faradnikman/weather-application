@@ -1,10 +1,6 @@
 <template>
-  <v-row justify="center">
-    <v-col v-if="$vuetify.breakpoint.mdAndUp">
-      <h2>Weather Forecast</h2>
-      <span>How is the weather today?</span>
-    </v-col>
-    <v-col md="6">
+  <v-row justify="end">
+    <v-col md="6" xs="12">
       <v-autocomplete
         hide-details
         auto-select-first
