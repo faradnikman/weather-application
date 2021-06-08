@@ -3,4 +3,5 @@ export default () => ({
   daily: {},
   forecast: {},
   units: 'metric',
+  cities: [],
 })

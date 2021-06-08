@@ -8,4 +8,10 @@ export default {
   updateForecast(state, data) {
     state.forecast = data
   },
+  addCities(state, data) {
+    state.cities.push(data)
+  },
+  removeCities(state, index) {
+    state.cities.splice(index, 1)
+  },
 }
