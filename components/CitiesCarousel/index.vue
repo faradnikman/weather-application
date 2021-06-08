@@ -17,17 +17,9 @@
           </v-col>
         </v-row>
       </template>
-      <v-row class="ma-n2" v-if="cityWeather.length">
-        <v-col
-          md="3"
-          xs="12"
-          v-cloak
-          v-if="cities.length"
-          v-for="(city, index) in cityWeather"
-          :key="city.name"
-          class="pa-2"
-        >
-          <v-card height="100%" shaped ripple>
+      <v-slide-group :show-arrows="this.$vuetify.breakpoint.mdAndUp">
+        <v-slide-item v-for="(city, index) in cityWeather" :key="city.name">
+          <v-card width="250px" shaped ripple class="ma-2">
             <v-card-text>
               <v-flex class="justify-space-between" style="position: relative">
                 <h2>
@@ -57,8 +49,8 @@
               </div>
             </v-card-text>
           </v-card>
-        </v-col>
-      </v-row>
+        </v-slide-item>
+      </v-slide-group>
     </v-wait>
   </v-flex>
 </template>
