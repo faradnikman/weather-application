@@ -1,6 +1,7 @@
 <template>
   <div>
     <city-selection-bar />
+    <cities-carousel />
     <weather-card />
     <five-days-forecast />
   </div>
@@ -11,12 +12,14 @@ import { mapActions, mapState } from 'vuex'
 import WeatherCard from '~/components/WeatherCard'
 import CitySelectionBar from '~/components/CitySelectionBar'
 import FiveDaysForecast from '~/components/FiveDaysForecast'
+import CitiesCarousel from '~/components/CitiesCarousel'
 
 export default {
   components: {
     WeatherCard,
     CitySelectionBar,
     FiveDaysForecast,
+    CitiesCarousel,
   },
   methods: {
     ...mapActions('weather', ['fetchWeather', 'fetchForecast']),
