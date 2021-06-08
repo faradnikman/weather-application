@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: 'weather-app',
+    titleTemplate: 'Weather Forecast',
     title: 'Weather Forecast',
     htmlAttrs: {
       lang: 'en',
