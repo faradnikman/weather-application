@@ -21,7 +21,6 @@
       <v-row class="ma-n2">
         <v-col
           xs="12"
-          sm="6"
           md="4"
           v-cloak
           v-if="daysForecast.length"
@@ -31,7 +30,7 @@
         >
           <v-card>
             <v-card-text>
-              <v-container>
+              <v-container class="pa-0">
                 <v-row no-gutters>
                   <v-col>
                     <div>
