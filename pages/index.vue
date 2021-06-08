@@ -1,8 +1,8 @@
 <template>
   <div>
     <city-selection-bar />
-    <cities-carousel />
     <weather-card />
+    <cities-carousel />
     <five-days-forecast />
   </div>
 </template>
