@@ -3,7 +3,19 @@
     <h2 class="mb-2">5 Days Forecast</h2>
     <v-wait for="fetch-forecast-data">
       <template slot="waiting">
-        <v-skeleton-loader type="card" />
+        <v-row class="ma-n2">
+          <v-col
+            xs="12"
+            sm="6"
+            md="4"
+            v-cloak
+            v-for="n in 5"
+            :key="n"
+            class="pa-2"
+          >
+            <v-skeleton-loader type="card" />
+          </v-col>
+        </v-row>
       </template>
 
       <v-row class="ma-n2">
