@@ -29,11 +29,20 @@
         >
           <v-card height="100%" shaped ripple>
             <v-card-text>
-              <v-flex class="justify-space-between">
+              <v-flex class="justify-space-between" style="position: relative">
                 <h2>
                   {{ city }}
                 </h2>
-                <v-btn icon @click.prevent.stop="removeCities(index)" small>
+                <v-btn
+                  icon
+                  @click.prevent.stop="removeCities(index)"
+                  small
+                  :style="{
+                    right: 0,
+                    position: 'absolute',
+                    top: 0,
+                  }"
+                >
                   <v-icon class="v-size--x-small">mdi-minus</v-icon>
                 </v-btn>
               </v-flex>
