@@ -28,7 +28,7 @@
                     class="ma-auto"
                   />
                 </v-avatar>
-                <span class="mb-2">
+                <span class="mb-2 text-body-1">
                   {{ currentWeather.description }}, Feels like
                   <span class="font-weight-bold">{{
                     currentTemperature.feels_like
