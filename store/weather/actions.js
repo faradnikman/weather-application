@@ -17,13 +17,25 @@ export default {
       commit('updateCity', data.name)
       commit('updateWeather', data)
     } catch (error) {
-      console.log(
-        '👾 %c error in action',
-        'background-color: #d73d32; color: white;',
-        error
-      )
+      //todo: handle error
     } finally {
       dispatch('wait/end', 'fetch-daily-data', { root: true })
+    }
+  },
+  async fetchMiniCardWeather({ commit, dispatch }, city = 'Kuala Lumpur') {
+    try {
+      dispatch('wait/start', 'fetch-cities-daily', { root: true })
+      const { data } = await axios.get('api/weather', {
+        params: {
+          city,
+        },
+      })
+
+      return data
+    } catch (error) {
+      // todo: handle error
+    } finally {
+      dispatch('wait/end', 'fetch-cities-daily', { root: true })
     }
   },
   async fetchForecast(
@@ -41,11 +53,7 @@ export default {
       })
       commit('updateForecast', data)
     } catch (error) {
-      console.log(
-        '👾 %c error in action',
-        'background-color: #d73d32; color: white;',
-        error
-      )
+      //todo: handle error
     } finally {
       dispatch('wait/end', 'fetch-forecast-data', { root: true })
     }
