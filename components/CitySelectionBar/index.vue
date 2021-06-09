@@ -35,11 +35,14 @@ export default {
   methods: {
     ...mapMutations('weather', ['updateCity']),
     handleUpdateCity(city) {
-      return this.$router.replace({
-        query: {
-          city,
-        },
-      })
+      // avoid redundant routing
+      if (city !== this.city) {
+        return this.$router.replace({
+          query: {
+            city,
+          },
+        })
+      }
     },
   },
 }
