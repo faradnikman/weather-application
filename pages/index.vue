@@ -64,11 +64,14 @@ export default {
       }
     }
   },
-  watchQuery(newValue, oldValue) {
-    if (oldValue.city) {
-      this.fetchWeather({ city: newValue.city })
-      this.fetchForecast({ city: newValue.city })
-    }
+  watch: {
+    '$route.query.city'(city) {
+      // avoid fetching twice when coming from user location
+      if (city !== this.city) {
+        this.fetchWeather({ city })
+        this.fetchForecast({ city })
+      }
+    },
   },
 }
 </script>

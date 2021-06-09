@@ -1,7 +1,9 @@
 <template>
   <v-wait for="fetch-daily-data">
     <template slot="waiting">
-      <v-skeleton-loader type="card" class="my-8" />
+      <v-col col="12" md="6">
+        <v-skeleton-loader type="list-item-two-line" class="my-8" />
+      </v-col>
     </template>
     <div v-if="daily.name" class="my-4">
       <v-card-text>
