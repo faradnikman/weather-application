@@ -9,7 +9,56 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'How is the weather today?',
+      },
+      {
+        hid: 'twitter:title',
+        name: 'twitter:title',
+        content: 'Weather Forecast by mkxhmn',
+      },
+      {
+        hid: 'twitter:description',
+        name: 'twitter:description',
+        content: 'How is the weather today?',
+      },
+      {
+        hid: 'twitter:image',
+        name: 'twitter:image',
+        content: 'https://source.unsplash.com/WwD-LlmXp5o/640x480',
+      },
+      {
+        hid: 'twitter:image:alt',
+        name: 'twitter:image:alt',
+        content: 'Weather Forecast by mkxhmn',
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'Weather Forecast by mkxhmn',
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: 'How is the weather today?',
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: 'https://source.unsplash.com/WwD-LlmXp5o/640x480',
+      },
+      {
+        hid: 'og:image:secure_url',
+        property: 'og:image:secure_url',
+        content: 'https://source.unsplash.com/WwD-LlmXp5o/640x480',
+      },
+      {
+        hid: 'og:image:alt',
+        property: 'og:image:alt',
+        content: 'Weather Forecast by mkxhmn',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
