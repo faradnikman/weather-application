@@ -27,7 +27,7 @@ export default {
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content: 'https://source.unsplash.com/WwD-LlmXp5o/640x480',
+        content: 'https://source.unsplash.com/WwD-LlmXp5o/1200x628',
       },
       {
         hid: 'twitter:image:alt',
@@ -47,12 +47,12 @@ export default {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://source.unsplash.com/WwD-LlmXp5o/640x480',
+        content: 'https://source.unsplash.com/WwD-LlmXp5o/1200x628',
       },
       {
         hid: 'og:image:secure_url',
         property: 'og:image:secure_url',
-        content: 'https://source.unsplash.com/WwD-LlmXp5o/640x480',
+        content: 'https://source.unsplash.com/WwD-LlmXp5o/1200x628',
       },
       {
         hid: 'og:image:alt',
