@@ -1,6 +1,6 @@
 # Weather Application 🌤
 
-A weather forecast project for vuejs showcase 
+A weather forecast project for vuejs and nuxtjs showcase 
 
 ## Table Of Content 
   - [Project Setup](#project-setup)
