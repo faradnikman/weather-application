@@ -32,6 +32,8 @@ npm run dev
 ```
 
 ### Deployment
+> ensure that you include `OPEN_WEATHER_MAP_API_KEY` as part of your deployment `env`
+
 This app  deployed using [vercel](https://vercel.com/), I find that by registering using github account yields a smooth deployment experience. 
 To deploy in staging environment, create a PR to the `main` branch, _vercel.bot_ trigger a _preview_ build, 
 in order to make it to _production_, you can either **promote** the _preview_ build to _production_ or **merge** PR into _main_ branch.
