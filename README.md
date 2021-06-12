@@ -8,8 +8,9 @@ this simple project is implemented using
 - Openweather API
 
 
-photo courtesy
-> Helena Hertz [@imperiumnordique](https://unsplash.com/@imperiumnordique)
+## Credits
+### photo courtesy
+- ian dooley [@sadswim - unsplash.com](https://unsplash.com/@sadswim)
 
 
 
