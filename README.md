@@ -46,7 +46,7 @@ in order to make it to _production_, you can either **promote** the _preview_ bu
 [![](https://mermaid.ink/img/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG5jbGllbnQtPj5zZXJ2ZXItbWlkZGxld2FyZTogcmVxdWVzdCB3ZWF0aGVyIGRhdGFcbnNlcnZlci1taWRkbGV3YXJlLT4-b3BlbndlYXRoZXJtYXAgQVBJOiByZXF1ZXN0XG5vcGVud2VhdGhlcm1hcCBBUEktLT4-c2VydmVyLW1pZGRsZXdhcmU6cmVzcG9uc2VcbnNlcnZlci1taWRkbGV3YXJlLS0-PmNsaWVudDpyZXNwb25zZSIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2UsImF1dG9TeW5jIjp0cnVlLCJ1cGRhdGVEaWFncmFtIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/edit##eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG5jbGllbnQtPj5zZXJ2ZXItbWlkZGxld2FyZTogcmVxdWVzdCB3ZWF0aGVyIGRhdGFcbnNlcnZlci1taWRkbGV3YXJlLT4-b3BlbndlYXRoZXJtYXAgQVBJOiByZXF1ZXNcbm9wZW53ZWF0aGVybWFwIEFQSS0tPj5zZXJ2ZXItbWlkZGxld2FyZTpyZXNwb25zZVxuc2VydmVyLW1pZGRsZXdhcmUtLT4-Y2xpZW50OnJlc3BvbnNlIiwibWVybWFpZCI6IntcbiAgXCJ0aGVtZVwiOiBcImRlZmF1bHRcIlxufSIsInVwZGF0ZUVkaXRvciI6ZmFsc2UsImF1dG9TeW5jIjp0cnVlLCJ1cGRhdGVEaWFncmFtIjpmYWxzZX0)
 
 ### Current Weather Data
-[link](https://openweathermap.org/current)
+[🔗 link](https://openweathermap.org/current)
 
 this API returns current weather data based on
 - city
@@ -55,7 +55,7 @@ this API returns current weather data based on
 server-middleware route, `/api/weather` 
   
 ### 5 Days Forecast
-[link](https://openweathermap.org/forecast5)
+[🔗 link](https://openweathermap.org/forecast5)
 
 this API returns 5 days weather forecast data based on
 - city
